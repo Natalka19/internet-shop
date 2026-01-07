@@ -90,11 +90,12 @@
       <table id="shopTable" class="table table-striped">
         <thead>
           <tr>
-            <th style="width: 10%">Image</th>
-            <th style="width: 15%">Name</th>
+            <th style="width: 15%">Image</th>
+            <th style="width: 10%">Name</th>
+            <th style="width: 10%">Model</th>
             <th style="width: 15%">Category</th>
-            <th style="width: 15%">Color</th>
-            <th style="width: 15%">Price</th>
+            <th style="width: 10%">Color</th>
+            <th style="width: 10%">Price</th>
             <th style="width: 10%">Stock</th>
             <th style="width: 20%">Actions</th>
           </tr>
@@ -139,6 +140,17 @@
                   type="text"
                   class="form-control"
                   id="customerName"
+                  autocomplete="off"
+                />
+              </div>
+                            <div class="mb-3">
+                <label for="modelName" class="form-label"
+                  >Model<span>*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="modelName"
                   autocomplete="off"
                 />
               </div>

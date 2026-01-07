@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
     --color-text: #2e2e2e;
@@ -7,6 +8,8 @@
     --btn-red: #f04f43;
     --btn-red-hover: #d03c32;
     --btn-edit-hover: rgb(189, 181, 62);
+    --thead-tr: #a089fb;
+    --tbody-tr-hover: #a28df4;
 }
 
 * {
@@ -17,7 +20,7 @@
 }
 
 body{
-    background: linear-gradient(to right, #977dff, #f2e6ee);
+    background: linear-gradient(to right, var(--main-purple), var(--color-background));
     margin: 50px 30px 0;
 }
 .mb-3 {
@@ -26,7 +29,7 @@ body{
 }
 .container{
     margin-top: 30px;
-    background: #faf7f0;
+    background: var(--color-background);
     box-shadow: 3px 3px 20px rgba(0,0,0,.3);
     padding: 25px;
     border-radius: 10px;
@@ -35,37 +38,48 @@ body{
 
 .container table{
     width: 100%;
-    border-color: #977dff;
+    border-color: var(--main-purple);
 }
 
 .container table thead{
     vertical-align: middle;
-    border-bottom-color: #faf7f0;
+    border-bottom-color: var(--color-background);
 }
 
-.container table thead th,
-.container table tfoot th{
-    border-right-color: #faf7f0;
+.container table thead th {
+    border-right-color: var(--color-background);
 }
 
-.container table thead th:first-child,
-.container table tfoot th:first-child{
-    border-left-color: #977dff;
+.container table thead th:first-child {
+    border-left-color: var(--main-purple);
 }
 
-.container table thead th:last-child,
-.container table tfoot th:last-child{
-    border-right-color: #977dff;
+.container table thead th:last-child {
+    border-right-color: var(--main-purple);
+}
+
+#shopTable {
+  width: 100%;
+  table-layout: fixed;
 }
 
 #shopTable th,
 #shopTable td {
-  padding-left: 30px;
+  padding: 8px 12px;
+  vertical-align: middle;
+}
+
+#shopTable th:first-child,
+#shopTable th:last-child {
+  padding-left: 60px;
+}
+
+#shopTable td:first-child {
+  text-align: center;
 }
 
 table thead tr th,
-table tbody tr td,
-table tfoot tr th{
+table tbody tr td {
     text-align: left !important;
 }
 
@@ -74,16 +88,16 @@ table tbody tr{
 }
 
 table tbody tr:nth-child(even){
-    background: #f2f2f2 !important;
+    background: var(--color-background) !important;
 }
 
 table tbody tr:hover{
-    background: #a28df4 !important;
-    color: #faf7f0 !important;
+    background: var(--tbody-tr-hover)!important;
+    color: var(--color-background) !important;
 }
 
 table tbody tr:hover td:not(:last-child){
-    border-right-color: #faf7f0;
+    border-right-color: var(--color-background);
 }
 
 table tbody tr td{
@@ -95,16 +109,15 @@ table tbody tr td:first-child{
     text-align: center !important;
 }
 
-table thead tr,
-table tfoot tr{
-    background: #a089fb;
-    color: #faf7f0;
+table thead tr {
+    background: var(--thead-tr);
+    color: var(--color-background);
 }
 
 #sortMenuButton {
   padding: 8px 24px;
-  border-color: #977dff;
-  background-color: #faf7f0;
+  border-color: var(--main-purple);
+  background-color: var(--color-background);
 }
 
 .input-group {
@@ -116,42 +129,45 @@ table tfoot tr{
 }
 
 #searchInput {
-  flex: 2;
-  min-width: 200px;
-  border: 1px solid #977dff;
+  flex: 1;
+  min-width: px;
+  border: 1px solid var(--main-purple);
   transition: all 0.2s ease;
   border-radius: 6px !important;
 }
 
 #searchInput:hover,
 #searchInput:focus {
-  border-color: #7b63ff;
+  border-color: var(--btn-hover-purple);
   box-shadow: 0 0 5px rgba(151, 125, 255, 0.8);
 }
 
 .sort-btn,
 .add-btn {
-  flex: 1;
   min-width: 100px;
   border-radius: 6px !important;
-  padding: 8px 12px;
-  background-color: #f2f2f2;
-  color: #2e2e2e;
-  border: 1px solid #977dff;
+  padding: 8px 24px;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border: 1px solid var(--main-purple);
 }
 
 .btn.sort-btn.dropdown-toggle:hover,
 .btn.sort-btn.dropdown-toggle:focus {
-  background-color: #7e61f1 !important;
-  color: #f2f2f2 !important;
+  background-color: var(--btn-hover-purple) !important;
+  color: var(--color-background)!important;
   box-shadow: 0 0 5px rgba(151, 125, 255, 0.4);
 }
+.sort-btn,
+.add-btn {
+  flex: none;
+  width: 160px;
+}
 
-/* базовий стан */
 .btn.add-btn {
-  background-color: #977dff;
-  color: #f2f2f2;
-  border: 1px solid #977dff;
+  background-color: var(--main-purple);
+  color: var(--color-background);
+  border: 1px solid var(--main-purple);
   border-radius: 6px;
   transition: all 0.2s ease;
   box-shadow: none;
@@ -160,7 +176,7 @@ table tfoot tr{
 
 /* hover */
 .btn.add-btn:hover {
-  background-color: #7e61f1;
+  background-color: var(--btn-hover-purple);
   box-shadow: 0 0 5px rgba(151, 125, 255, 0.4);
 }
 
@@ -172,7 +188,7 @@ table tfoot tr{
 
 /* active */
 .btn.add-btn:active {
-  background-color: #7e61f1;
+  background-color: var(--btn-hover-purple);
   box-shadow: 0 0 5px rgba(151, 125, 255, 0.4);
 }
 
@@ -182,57 +198,36 @@ table tfoot tr{
 }
 
 .container table tbody tr:last-child{
-    border-bottom-color: #faf7f0;
-}
-
-.action-wrapper{
-    margin-bottom: 16px;
-}
-
-.actions {
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
-}
-
-.action-btn {
-  flex: 1;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  padding: 6px 0;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  color: #fff;
+    border-bottom-color: var(--color-background);
 }
 
 .edit-btn {
   padding: 6px 24px;
   margin-right: 12px;
-  background-color: #f2f2f2;
-  color: #2e2e2e;
-  border: 1px solid #977dff;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border: 1px solid var(--main-purple);
   transition: background-color 0.2s ease;
 }
 
 .edit-btn:hover,
 .edit-btn:focus {
-  background-color: rgb(189, 181, 62);
+  background-color: var(--btn-edit-hover);
   padding: 6px 24px;
-  border: 1px solid #977dff;
+  border: 1px solid var(--btn-edit-hover);
   outline: none !important;
 }
 
 .delete-btn {
-  background-color: #f2f2f2;
+  background-color: var(--color-background);
   padding: 6px 16px;
-  color: #f04f43;
-  border: 1px solid #f04f43;
+  color: var(--btn-red);
+  border: 1px solid var(--btn-red);;
   box-shadow: none;
 }
 
 .delete-btn:hover {
-  background-color: #d03c32;
+  background-color: var(--btn-red-hover);
 }
 
 .edit-btn:focus,
@@ -258,18 +253,18 @@ table tfoot tr{
 
 .dropdown-menu .dropdown-item.active,
 .dropdown-menu .dropdown-item:active {
-  background-color: #977dff !important; /* зелений */
-  color: #faf7f0 !important; /* колір тексту */
+  background-color: var(--main-purple) !important;
+  color: var(--color-background) !important;
 }
 
 /* modal form */
 .modal-header{
-    background: #977dff;
-    color: #faf7f0;
+    background: var(--main-purple);
+    color: var(--color-background);
 }
 
 .cross{
-    color: #faf7f0;
+    color: var(--color-background);
     border: none;
     outline: none;
     font-size: 25px;
@@ -287,24 +282,22 @@ table tfoot tr{
     outline: none;
     padding: 8px 15px;
     border-radius: 5px;
-    background: #977dff;
-    color: #faf7f0;
+    background: var(--main-purple);
+    color: var(--color-background);
     font-weight: 600;
 }
 
 .submitBtn:hover {
-  background-color: #7e61f1;
+  background-color: var(--btn-hover-purple);
   box-shadow: 0 0 5px rgba(151, 125, 255, 0.4);
 }
 
-/* focus */
 .submitBtn:focus-visible {
   outline: none;
   box-shadow: 0 0 5px rgba(151, 125, 255, 0.6);
 }
 
-/* active */
 .submitBtn:active {
-  background-color: #7e61f1;
+  background-color: var(--btn-hover-purple);
   box-shadow: 0 0 5px rgba(151, 125, 255, 0.4);
 }

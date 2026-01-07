@@ -34,37 +34,43 @@ function fileToBase64(file) {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  let imageData = null;
+  let editId = null;
+  let imageRemoved = false;
   const tbody = document.getElementById("productsBody");
   const form = document.getElementById("addNewForm");
   const modalEl = document.getElementById("addNewModal");
   const searchInput = document.getElementById("searchInput");
-  const sortMenuButton = document.getElementById("sortMenuButton");
   const imageInput = document.getElementById("image");
-const imagePreview = document.getElementById("imagePreview");
-const removeImageBtn = document.getElementById("removeImageBtn");
-let imageData = null;
+  const imagePreview = document.getElementById("imagePreview");
+  const removeImageBtn = document.getElementById("removeImageBtn");
 
-// preview при виборі файлу
-imageInput.addEventListener("change", async () => {
-  const file = imageInput.files[0];
-  if (file) {
-    imageData = await fileToBase64(file);
-    imagePreview.innerHTML = `<img src="${imageData}" width="100" style="object-fit: cover">`;
-  }
-});
 
-// видалення фото
-removeImageBtn.addEventListener("click", () => {
-  imageData = null;
-  imageInput.value = "";
-  imagePreview.innerHTML = "";
-});
+  // preview при виборі файлу
+  imageInput.addEventListener("change", async () => {
+    const file = imageInput.files[0];
+    if (file) {
+      imageData = await fileToBase64(file);
+      imagePreview.innerHTML = `<img src="${imageData}" width="50" style="object-fit: cover">`;
+    }
+  });
 
+  // видалення фото
+  removeImageBtn.addEventListener("click", () => {
+    imageData = null;
+    imageRemoved = true;
+    imageInput.value = "";
+    imagePreview.innerHTML = "";
+  });
 
   const addProductBtn = document.getElementById("addProductBtn");
   addProductBtn.addEventListener("click", () => {
-    form.reset(); // очищає всі поля форми
-    editId = null; // скидаємо редагування
+    form.reset();
+    editId = null;
+    imageData = null;
+    imageRemoved = false;
+    imagePreview.innerHTML = "";
+    imageInput.value = "";
   });
 
   function refreshTable(filter = "") {
@@ -77,8 +83,9 @@ removeImageBtn.addEventListener("click", () => {
         const tr = document.createElement("tr");
         tr.dataset.id = p.id;
         tr.innerHTML = `
-          <td><img src="${p.image || 'img/placeholder.jpg'}" width="50"></td>
+          <td><img src="${p.image || "img/placeholder.jpg"}" width="50"></td>
           <td>${p.name}</td>
+          <td>${p.model}</td>
           <td>${p.category}</td>
           <td>${p.color}</td>
           <td>${p.price}</td>
@@ -108,6 +115,7 @@ removeImageBtn.addEventListener("click", () => {
     e.preventDefault();
 
     const name = form.customerName.value.trim();
+    const model = form.modelName.value.trim();
     const category = form.product.value;
     const color = form.color.value.trim();
     const price = Number(form.price.value);
@@ -116,7 +124,7 @@ removeImageBtn.addEventListener("click", () => {
     const errors = [];
     const nameRegex = /^[A-Z][a-z]*( [a-zA-Z0-9]+)*$/;
 
-    if (!name || !category || category === "Choose category" || !color) {
+    if (!name || !category || category === "Choose category" || !color || !model) {
       errors.push("Please fill all fields correctly");
     }
     if (!nameRegex.test(name))
@@ -132,23 +140,24 @@ removeImageBtn.addEventListener("click", () => {
     }
 
     const product = {
-      id: editId || (Date.now()+ Math.floor(Math.random() * 1000)).toString(),
+      id: editId || (Date.now() + Math.floor(Math.random() * 1000)).toString(),
       name,
+      model,
       category,
       color,
       price,
       stock,
-      image: imageData
+      image: imageData,
     };
 
-  if (editId) {
-    updateProduct(product);
-    editId = null;
-  } else {
-    const products = getProducts();
-    products.push(product);
-    saveProducts(products);
-  }
+    if (editId) {
+      updateProduct(product);
+      editId = null;
+    } else {
+      const products = getProducts();
+      products.push(product);
+      saveProducts(products);
+    }
 
     refreshTable();
     form.reset();
@@ -178,16 +187,17 @@ removeImageBtn.addEventListener("click", () => {
       editId = id;
 
       form.customerName.value = product.name;
+      form.modelName.value = product.model;
       form.product.value = product.category;
       form.color.value = product.color;
       form.price.value = product.price;
       form.stock.value = product.stock;
 
       imageData = product.image || null;
-  imagePreview.innerHTML = product.image
-    ? `<img src="${product.image}" width="100" style="object-fit: cover">`
-    : "";
-  imageInput.value = "";
+      imagePreview.innerHTML = product.image
+        ? `<img src="${product.image}" width="100" style="object-fit: cover">`
+        : "";
+      imageInput.value = "";
 
       const modal = new bootstrap.Modal(modalEl);
       modal.show();
