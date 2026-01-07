@@ -1,61 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
-:root{
-    --color-text: #2e2e2e;
-    --color-background: #faf7f0;
-    --main-purple: #977dff;
-    --btn-hover-purple: #7e61f1;
-    --btn-red: #f04f43;
-    --btn-red-hover: #d03c32;
-    --btn-edit-hover: rgb(189, 181, 62);
-    --thead-tr: #a089fb;
-    --tbody-tr-hover: #a28df4;
+:root {
+  --color-text: #2e2e2e;
+  --color-background: #faf7f0;
+  --main-purple: #977dff;
+  --btn-hover-purple: #7e61f1;
+  --btn-red: #f04f43;
+  --btn-red-hover: #d03c32;
+  --btn-edit-hover: rgb(189, 181, 62);
+  --thead-tr: #a089fb;
+  --tbody-tr-hover: #a28df4;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-body{
-    background: linear-gradient(to right, var(--main-purple), var(--color-background));
-    margin: 50px 30px 0;
+body {
+  background: linear-gradient(
+    to right,
+    var(--main-purple),
+    var(--color-background)
+  );
+  margin: 50px 30px 0;
 }
 .mb-3 {
   font-weight: 600;
   color: var(--color-text);
 }
-.container{
-    margin-top: 30px;
-    background: var(--color-background);
-    box-shadow: 3px 3px 20px rgba(0,0,0,.3);
-    padding: 25px;
-    border-radius: 10px;
-    max-width: 1500px;
+.container {
+  margin-top: 30px;
+  background: var(--color-background);
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 1500px;
 }
 
-.container table{
-    width: 100%;
-    border-color: var(--main-purple);
+.container table {
+  width: 100%;
+  border-color: var(--main-purple);
 }
 
-.container table thead{
-    vertical-align: middle;
-    border-bottom-color: var(--color-background);
+.container table thead {
+  vertical-align: middle;
+  border-bottom-color: var(--color-background);
 }
 
 .container table thead th {
-    border-right-color: var(--color-background);
+  border-right-color: var(--color-background);
 }
 
 .container table thead th:first-child {
-    border-left-color: var(--main-purple);
+  border-left-color: var(--main-purple);
 }
 
 .container table thead th:last-child {
-    border-right-color: var(--main-purple);
+  border-right-color: var(--main-purple);
 }
 
 #shopTable {
@@ -80,38 +84,38 @@ body{
 
 table thead tr th,
 table tbody tr td {
-    text-align: left !important;
+  text-align: left !important;
 }
 
-table tbody tr{
-    cursor: pointer;
+table tbody tr {
+  cursor: pointer;
 }
 
-table tbody tr:nth-child(even){
-    background: var(--color-background) !important;
+table tbody tr:nth-child(even) {
+  background: var(--color-background) !important;
 }
 
-table tbody tr:hover{
-    background: var(--tbody-tr-hover)!important;
-    color: var(--color-background) !important;
+table tbody tr:hover {
+  background: var(--tbody-tr-hover) !important;
+  color: var(--color-background) !important;
 }
 
-table tbody tr:hover td:not(:last-child){
-    border-right-color: var(--color-background);
+table tbody tr:hover td:not(:last-child) {
+  border-right-color: var(--color-background);
 }
 
-table tbody tr td{
-    vertical-align: middle;
+table tbody tr td {
+  vertical-align: middle;
 }
 
-table tbody tr td:first-child{
-    font-weight: 600;
-    text-align: center !important;
+table tbody tr td:first-child {
+  font-weight: 600;
+  text-align: center !important;
 }
 
 table thead tr {
-    background: var(--thead-tr);
-    color: var(--color-background);
+  background: var(--thead-tr);
+  color: var(--color-background);
 }
 
 #sortMenuButton {
@@ -155,7 +159,7 @@ table thead tr {
 .btn.sort-btn.dropdown-toggle:hover,
 .btn.sort-btn.dropdown-toggle:focus {
   background-color: var(--btn-hover-purple) !important;
-  color: var(--color-background)!important;
+  color: var(--color-background) !important;
   box-shadow: 0 0 5px rgba(151, 125, 255, 0.4);
 }
 .sort-btn,
@@ -193,12 +197,12 @@ table thead tr {
 }
 
 ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+  width: 0px;
+  background: transparent;
 }
 
-.container table tbody tr:last-child{
-    border-bottom-color: var(--color-background);
+.container table tbody tr:last-child {
+  border-bottom-color: var(--color-background);
 }
 
 .edit-btn {
@@ -222,7 +226,7 @@ table thead tr {
   background-color: var(--color-background);
   padding: 6px 16px;
   color: var(--btn-red);
-  border: 1px solid var(--btn-red);;
+  border: 1px solid var(--btn-red);
   box-shadow: none;
 }
 
@@ -258,33 +262,33 @@ table thead tr {
 }
 
 /* modal form */
-.modal-header{
-    background: var(--main-purple);
-    color: var(--color-background);
+.modal-header {
+  background: var(--main-purple);
+  color: var(--color-background);
 }
 
-.cross{
-    color: var(--color-background);
-    border: none;
-    outline: none;
-    font-size: 25px;
-    background: transparent;
+.cross {
+  color: var(--color-background);
+  border: none;
+  outline: none;
+  font-size: 25px;
+  background: transparent;
 }
 
-.modal span{
-    color: var(--btn-red);
-    font-size: 18px;
+.modal span {
+  color: var(--btn-red);
+  font-size: 18px;
 }
 
-.submitBtn{
-    width: 100%;
-    border: none;
-    outline: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    background: var(--main-purple);
-    color: var(--color-background);
-    font-weight: 600;
+.submitBtn {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  background: var(--main-purple);
+  color: var(--color-background);
+  font-weight: 600;
 }
 
 .submitBtn:hover {

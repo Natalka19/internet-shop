@@ -32,7 +32,6 @@ function fileToBase64(file) {
   });
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
   let imageData = null;
   let editId = null;
@@ -44,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const imageInput = document.getElementById("image");
   const imagePreview = document.getElementById("imagePreview");
   const removeImageBtn = document.getElementById("removeImageBtn");
-
 
   // preview при виборі файлу
   imageInput.addEventListener("change", async () => {
@@ -124,7 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const errors = [];
     const nameRegex = /^[A-Z][a-z]*( [a-zA-Z0-9]+)*$/;
 
-    if (!name || !category || category === "Choose category" || !color || !model) {
+    if (
+      !name ||
+      !category ||
+      category === "Choose category" ||
+      !color ||
+      !model
+    ) {
       errors.push("Please fill all fields correctly");
     }
     if (!nameRegex.test(name))
