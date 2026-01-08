@@ -19,13 +19,13 @@ A simple CRUD web application for managing products in an online store.
 - localStorage API
 
 ## How to run
-Just open `main-page.html` in your browser.
+Just open `index.html` in your browser.
 
 ## Project Structure
 
 internet-shop/
 │
-├── main-page.html   # Main HTML file
+├── index.html   # Main HTML file
 ├── styles.css       # Application styles
 ├── main-page.js     # Application logic
 └── README.md
