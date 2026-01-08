@@ -141,6 +141,7 @@
                   class="form-control"
                   id="customerName"
                   autocomplete="off"
+                  name="customerName"
                 />
               </div>
               <div class="mb-3">
@@ -152,13 +153,14 @@
                   class="form-control"
                   id="modelName"
                   autocomplete="off"
+                  name="modelName"
                 />
               </div>
               <div class="mb-3">
                 <label for="product" class="form-label"
                   >Product Category<span>*</span></label
                 >
-                <select class="form-select" id="product" autocomplete="off">
+                <select class="form-select" id="product" autocomplete="off" name="product">
                   <option value="" selected disabled>Choose category</option>
                   <option value="TV & Video">TV & Video</option>
                   <option value="Cell Phones & Accessories">
@@ -181,6 +183,7 @@
                   class="form-control"
                   id="color"
                   autocomplete="off"
+                  name="color" 
                 />
               </div>
               <div class="mb-3">
@@ -192,18 +195,15 @@
                   class="form-control"
                   id="price"
                   autocomplete="off"
+                  name="price"
                 />
               </div>
               <div class="mb-3">
                 <label for="stock" class="form-label"
                   >Stock<span>*</span></label
                 >
-                <input
-                  type="number"
-                  class="form-control"
-                  id="stock"
-                  autocomplete="off"
-                />
+                <input type="number" class="form-control" id="stock"
+                autocomplete="off" name="stock" min="0" step="1" />
               </div>
               <div class="mb-3">
                 <label for="image" class="form-label">Photo (optional)</label>
@@ -212,6 +212,7 @@
                   class="form-control"
                   id="image"
                   accept="image/*"
+                  name="image"
                 />
                 <div id="imagePreview" style="margin-top: 10px"></div>
                 <button
